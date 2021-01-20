@@ -19,10 +19,10 @@ async def help(event):
         else:
             await event.edit("Plox specify a valid module name sar.")
     else:
-        string = "**Welcome To Help Centre**\n.**List of all Modules Loaded.**\n\n"
+        string = "**Welcome To Help Centre.**\n**List of all Modules Loaded.**\n\n"
                  
         for i in CMD_HELP:
-            string += "∘\t`" + str(i)
+            string += "∘∘\t`" + str(i)
             string += "`\t\t\t"
         await event.edit(
             f"{string}"
