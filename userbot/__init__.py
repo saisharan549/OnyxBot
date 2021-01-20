@@ -77,7 +77,7 @@ if BOTLOG:
 else:
     LOGSPAMMER = False
 
-# Bleep Blop, this is a bot ;)
+# this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN") or "False")
 
 # Heroku Credentials for updater.
@@ -136,14 +136,14 @@ ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or None
 COUNTRY = str(os.environ.get("COUNTRY") or "")
 TZ_NUMBER = int(os.environ.get("TZ_NUMBER") or 1)
 
-# Version of One4uBot
-USERBOT_VERSION = os.environ.get("USERBOT_VERSION") or "3.7"
+# Version of OnyxBot
+USERBOT_VERSION = os.environ.get("USERBOT_VERSION") or "1.0"
 
 # User Terminal alias
-USER_TERM_ALIAS = os.environ.get("USER_TERM_ALIAS") or "One4uBot"
+USER_TERM_ALIAS = os.environ.get("USER_TERM_ALIAS") or "OnyxBot"
 
 # Updater alias
-UPDATER_ALIAS = os.environ.get("UPDATER_ALIAS") or "One4uBot"
+UPDATER_ALIAS = os.environ.get("UPDATER_ALIAS") or "OnyxBot"
 
 # Zipfile module
 ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY") or "./zips"
