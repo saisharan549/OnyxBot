@@ -96,7 +96,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATE \n" "Your Fizilion was successfully updated"
+                BOTLOG_CHATID, "#UPDATE \n" "Your OnyxBot was successfully updated"
             )
 
     else:
@@ -116,7 +116,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#UPDATE \n" "Your Fizilion was successfully updated"
+            BOTLOG_CHATID, "#UPDATE \n" "Your OnyxBot was successfully updated"
         )
 
     # Spin a new instance of bot
@@ -146,7 +146,7 @@ async def upstream(event):
         if conf is None:
             return await event.edit(
                 f"`Unfortunately, the directory {error} does not seem to be a git repository."
-                "\nBut we can fix that by force updating the userbot using .update now.`"
+                "\nBut we can fix that by force updating the userbot using .ota now.`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -188,7 +188,7 @@ async def upstream(event):
         )
         if len(changelog_str) > 4096:
             await event.edit("`Changelog is too big, view the file to see it.`")
-            file = open("output.txt", "w+")
+            file = open("changelog.txt", "w+")
             file.write(changelog_str)
             file.close()
             await event.client.send_file(
@@ -206,7 +206,7 @@ async def upstream(event):
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     else:
-        await event.edit("`Updating Fizilion, please wait....`")
+        await event.edit("`Updating Onyx, please wait....`")
     if conf == "now":
         await update(event, repo, ups_rem, ac_br)
     elif conf == "deploy":
