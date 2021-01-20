@@ -230,7 +230,7 @@ async def amireallyalive(alive):
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
 "`========================================`\n"
-        "`          Otaku User Bot        `\n"
+        "`              OnyxBot           `\n"
         f"• `Telethon       : v{version.__version__} `\n"
         f"• `Python         : v{python_version()} `\n"
         f"• `User           :`  {DEFAULTUSER} \n"
@@ -253,7 +253,7 @@ async def amireallyalive(alive):
         await alive.edit(output)
 
 
-@register(outgoing=True, pattern="^.botu")
+@register(outgoing=True, pattern="^.aliveu")
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
@@ -296,9 +296,9 @@ CMD_HELP.update(
 )
 CMD_HELP.update(
     {
-        "alive": ".bot | .on\
-    \nUsage: Type .bot/.on to see wether your bot is working or not.\
-    \n\n.botu <text>\
+        "alive": ".alive | .on\
+    \nUsage: Type .alive/.on to see wether your bot is working or not.\
+    \n\n.aliveu <text>\
     \nUsage: Changes the 'user' in alive to the text you want.\
     \n\n.resetalive\
     \nUsage: Resets the user to default."
