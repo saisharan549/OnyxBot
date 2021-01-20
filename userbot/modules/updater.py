@@ -31,14 +31,11 @@ requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
 )
 
-
 async def gen_chlog(repo, diff):
-    ch_log = ""
+    ch_log = ''
     d_form = "%d/%m/%y"
     for c in repo.iter_commits(diff):
-        ch_log += (
-            f"•[{c.committed_datetime.strftime(d_form)}]: {c.summary} <{c.author}>\n"
-        )
+        ch_log += f'\n{c.summary} \nby {c.author} \non [{c.committed_datetime.strftime(d_form)}]\n'
     return ch_log
 
 
@@ -99,7 +96,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#UPDATE \n" "Your One4uBot was successfully updated"
+                BOTLOG_CHATID, "#UPDATE \n" "Your Fizilion was successfully updated"
             )
 
     else:
@@ -119,7 +116,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#UPDATE \n" "Your One4uBot was successfully updated"
+            BOTLOG_CHATID, "#UPDATE \n" "Your Fizilion was successfully updated"
         )
 
     # Spin a new instance of bot
@@ -128,7 +125,7 @@ async def update(event, repo, ups_rem, ac_br):
     return
 
 
-@register(outgoing=True, pattern=r"^.(update|ota)(?: |$)(now|deploy)?")
+@register(outgoing=True, pattern=r"^.ota(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("`Checking for updates, please wait....`")
@@ -202,14 +199,14 @@ async def upstream(event):
             remove("output.txt")
         else:
             await event.edit(changelog_str)
-        return await event.respond('`do ".update now/deploy" to update`')
+        return await event.respond('`do ".ota now/deploy" to update`')
 
     if force_update:
         await event.edit(
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     else:
-        await event.edit("`Updating OnyxBot, please wait....`")
+        await event.edit("`Updating Fizilion, please wait....`")
     if conf == "now":
         await update(event, repo, ups_rem, ac_br)
     elif conf == "deploy":
@@ -219,11 +216,11 @@ async def upstream(event):
 
 CMD_HELP.update(
     {
-        "update": ".update"
+        "ota": ".ota"
         "\nUsage: Checks if the main userbot repository has any updates and shows a changelog if so."
-        "\n\n.update now"
+        "\n\n.ota now"
         "\nUsage: Update your userbot, if there are any updates in your userbot repository."
-        "\n\n.update deploy"
+        "\n\n.ota deploy"
         "\nUsage: Deploy your userbot at heroku, if there are any updates in your userbot repository."
     }
 )
