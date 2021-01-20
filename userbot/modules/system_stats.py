@@ -230,7 +230,7 @@ async def amireallyalive(alive):
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
 "`========================================`\n"
-        "`              OnyxBot           `\n"
+        "`TheOnyxBot is Alive and Running Perfectly `\n"
         f"• **Telethon       : v{version.__version__} **\n"
         f"• **Python         : v{python_version()} **\n"
         f"• **User           : {DEFAULTUSER} **\n"
