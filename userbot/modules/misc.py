@@ -6,7 +6,7 @@
 # You can find misc modules, which dont fit in anything xD
 #
 #
-# Modifies by @PrajjuS
+# Modified by @PrajjuS
 
 """ Userbot module for other small commands. """
 
@@ -84,7 +84,7 @@ async def reedme(event):
 async def guidee(event):
     await event.edit(
         "*Guide on Deploying OnyxBot*\n"
-        "•[Reading Guide]()\n"
+        "•[Reading Guide](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)\n"
         "•[Yt Guide]()\n"
 )
 
