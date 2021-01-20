@@ -4,6 +4,10 @@
 # you may not use this file except in compliance with the License.
 #
 # You can find misc modules, which dont fit in anything xD
+#
+#
+# Modifies by @PrajjuS
+
 """ Userbot module for other small commands. """
 
 import io
@@ -36,7 +40,7 @@ async def randomise(items):
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
-    await time.edit("`I am sulking and snoozing...`")
+    await time.edit("`Going For Sleep`")
     if BOTLOG:
         str_counter = time_formatter(counter)
         await time.client.send_message(
@@ -50,7 +54,7 @@ async def sleepybot(time):
 @register(outgoing=True, pattern="^.shutdown$")
 async def killbot(shut):
     """For .shutdown command, shut the bot down."""
-    await shut.edit("`Goodbye *Windows XP shutdown sound*....`")
+    await shut.edit("`Shutting The Power Off`")
     if BOTLOG:
         await shut.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Bot shut down")
     await bot.disconnect()
@@ -58,7 +62,7 @@ async def killbot(shut):
 
 @register(outgoing=True, pattern="^.restart$")
 async def killdabot(reboot):
-    await reboot.edit("`*i would be back in a moment*`")
+    await reboot.edit("`Restarting`")
     if BOTLOG:
         await reboot.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Bot Restarted")
     await bot.disconnect()
@@ -72,15 +76,17 @@ async def killdabot(reboot):
 async def reedme(event):
     await event.edit(
         "Here's something for you to read:\n"
-        "\n[One4uBot's README.md file](https://github.com/MoveAngel/One4uBot/blob/sql-extended/README.md)"
-        "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-07-01-2)"
-        "\n[Setup Guide - Google Drive](https://telegra.ph/How-To-Setup-Google-Drive-04-03)"
-        "\n[Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
-        "\n[Setup Guide - From MiHub with Pict](https://www.mihub.my.id/2020/05/jadiuserbot.html)"
-        "\n[Setup Guide - In Indonesian Language](https://telegra.ph/UserIndoBot-05-21-3)"
-        "\n[Instant Setup - Generate String Session](https://repl.it/@MoveAngel/UserbotSession?lite=1&outputonly=1)"
-        "\n*For Instant Setup, click the green button called 'run' before use"
-    )
+        "\n[Onyx's README.md file]()"
+)
+
+
+@register(outgoing=True, pattern="^.guide$")
+async def guidee(event):
+    await event.edit(
+        "*Guide on Deploying OnyxBot*\n"
+        "•[Reading Guide]()\n"
+        "•[Yt Guide]()\n"
+)
 
 
 # Copyright (c) Gegham Zakaryan | 2019
@@ -102,10 +108,13 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "[Click here](https://github.com/MoveAngel/One4uBot) to open One4uBot's GitHub page."
+        "[Click here]() to open OnyxBot's GitHub Repo."
     )
 
-
+@register(outgoing=True, pattern="^.support$")
+async def grup(sapot):
+    await sapot.edit("Support Group: @OnyxBot_Support")
+    
 @register(outgoing=True, pattern="^.raw$")
 async def raw(rawtext):
     the_real_message = None
@@ -132,57 +141,23 @@ async def raw(rawtext):
 
 CMD_HELP.update(
     {
-        "random": ".random <item1> <item2> ... <itemN>\
-\nUsage: Get a random item from the list of items."
-    }
-)
-
-CMD_HELP.update(
-    {
-        "sleep": ".sleep <seconds>\
-\nUsage: Userbots get tired too. Let yours snooze for a few seconds."
-    }
-)
-
-CMD_HELP.update(
-    {
-        "shutdown": ".shutdown\
-\nUsage: Sometimes you need to shut down your bot. Sometimes you just hope to\
-hear Windows XP shutdown sound... but you don't."
-    }
-)
-
-CMD_HELP.update(
-    {
-        "repo": ".repo\
-\nUsage: If you are curious what makes the userbot work, this is what you need."
-    }
-)
-
-CMD_HELP.update(
-    {
-        "readme": ".readme\
-\nUsage: Provide links to setup the userbot and it's modules."
-    }
-)
-
-CMD_HELP.update(
-    {
-        "repeat": ".repeat <no.> <text>\
-\nUsage: Repeats the text for a number of times. Don't confuse this with spam tho."
-    }
-)
-
-CMD_HELP.update(
-    {
-        "restart": ".restart\
-\nUsage: Restarts the bot !!"
-    }
-)
-
-CMD_HELP.update(
-    {
-        "raw": ".raw\
-\nUsage: Get detailed JSON-like formatted data about replied message."
-    }
+        "misc": ".random <item1> <item2> ... <itemN>"
+"\nUsage: Get a random item from the list of items.\n\n"
+".sleep <seconds>"
+"\nUsage: hibernate your userbot.\n\n"
+".shutdown"
+"\nUsage: Shutdowns Your Bot.\n\n"
+".repo"
+"\nUsage: If you are curious what makes the userbot work, this is what you need.\n\n"
+".readme"
+"\nUsage: Provide links to setup the userbot and it's modules\nAnd .support for support group\n\n"
+".guide"
+"\nUsage: Provides Full guide to setup Fizilion Userbot.\n\n"
+".repeat <no.> <text>"
+"\nUsage: Repeats the text for a number of times. Don't confuse this with spam tho.\n\n"
+".restart"
+"\nUsage: Restarts the bot !!\n\n"
+".raw"
+"\nUsage: Get detailed JSON-like formatted data about replied message."
+     }
 )
