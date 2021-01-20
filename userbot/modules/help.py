@@ -25,10 +25,8 @@ async def help(event):
             await event.edit("Plox specify a valid module name sar.")
     else:
         temp = ""
-        final = "**Welcome To Help Centre.**\n**List of all Modules Loaded.**"
-                 "\n\nSpecify which module do you want help for!"
-                 "\n\n**Usage:** `.help` <module name>\n"
-
+        final = "**Welcome To Help Centre.**\n**List of all Modules Loaded.**
+    
         for i in CMD_HELP:
             temp += str(i) + " "
         temp = sorted(temp.split())
@@ -37,4 +35,8 @@ async def help(event):
             final += "`\t\t\t"
         await event.edit(f"{final[:-5]}")
         
-  
+        await event.edit(          
+            f"{final}"
+            "\n\nSpecify which module do you want help for !!\
+                        \n**Usage:** `.help` <module name>"
+        )
