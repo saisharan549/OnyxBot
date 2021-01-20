@@ -26,7 +26,7 @@ async def help(event):
     else:
         temp = ""
         final = "**Welcome To Help Centre.**\n**List of all Modules Loaded.**\n\n"
-                 "Specify which module do you want help for!\n"
+                 "Specify which module do you want help for! \n"
                  "**Usage:** `.help` <module name>\n\n"
 
         for i in CMD_HELP:
