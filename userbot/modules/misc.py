@@ -108,7 +108,7 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "[Click here]() to open OnyxBot's GitHub Repo."
+        "[Click here](https://github.com/predator777alpha/OnyxBot) to open OnyxBot's GitHub Repo."
     )
 
 @register(outgoing=True, pattern="^.support$")
