@@ -230,14 +230,14 @@ async def amireallyalive(alive):
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
 "`========================================`\n"
-        "`The Onyx User Bot is Alive and Running Perfectly `\n"
-        f"• **Telethon       : v{version.__version__} **\n"
-        f"• **Python         : v{python_version()} **\n"
-        f"• **User           : {DEFAULTUSER} **\n"
-        f"• **Running on     : {repo.active_branch.name} **\n"
-        f"• **Loaded modules : {len(modules)} **\n"
-        f"• **Bot_version    : v{USERBOT_VERSION} **\n"
-        f"• **Bot Uptime     : {uptime} **\n"
+  "`The Onyx User Bot is Alive and Running Perfectly  `\n"
+  f"• **Telethon       : v{version.__version__} **\n"
+  f"• **Python         : v{python_version()} **\n"
+  f"• **User           : {DEFAULTUSER} **\n"
+  f"• **Running on     : {repo.active_branch.name} **\n"
+  f"• **Loaded modules : {len(modules)} **\n"
+  f"• **Bot_version    : v{USERBOT_VERSION} **\n"
+  f"• **Bot Uptime     : {uptime} **\n"
 "`==========================================`\n"    )
     if ALIVE_LOGO:
         try:
